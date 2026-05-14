@@ -219,7 +219,6 @@ def delete_comment(request, post_id, comment_id):
     if request.method == 'POST':
         comment.delete()
         return redirect('blog:post_detail', id=post_id)
-    # Для GET-запроса показываем страницу подтверждения
     context = {
         'comment': comment,
         'post_id': post_id,
