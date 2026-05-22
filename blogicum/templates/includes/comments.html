@@ -4,6 +4,11 @@
   <form method="post" action="{% url 'blog:add_comment' post.id %}">
     {% csrf_token %}
     {% bootstrap_form form %}
+    {% if form.errors %}
+      <div class="alert alert-danger mt-2">
+        {{ form.errors }}
+      </div>
+    {% endif %}
     {% bootstrap_button button_type="submit" content="Отправить" %}
   </form>
 {% endif %}
